@@ -3,7 +3,7 @@ import click
 from .SplitChromBAM import SplitChromBAM_process
 from .PerpareBAMforCalling import PerpareBAMforCalling_process
 from .SNVCalling import SNVCalling_process
-from .CallBack import CallBack_process
+from .CallBack import CallBack_process,BulidResult
 from .utils import BulidConfig
 
 
@@ -92,10 +92,6 @@ def SNVCalling(
     SNVCalling_process(sample,bam,fasta,outvcf,pon,germline,config,chrom)
 
 
-@main.command(name="VCFMerge",no_args_is_help=True)
-def VCFMerge():
-    pass
-
 
 @main.command(name="CallBack",no_args_is_help=True)
 @click.option("-b","--bam", type=click.Path(exists=True, file_okay=True, dir_okay=False), required=True, help="Bam file with inde(ex: -b example.bam1 -b example.bam2)")
@@ -109,6 +105,10 @@ def VCFMerge():
 @click.option("-u","--umi", type = str, default ='UB', help = "UMI(Molecular Barcodes) in Bam file (ex. UR for 10X Genomics)")
 @click.option("-@","--threads", type = int, default = 10, help = "Sets the number of threads")
 @click.option("--qmap", type = int, default = 10, help = "Sets the number of qmap")
+@click.option("-x",'--xsetoff',default = None,type = int, help="gem_x + x_offset = bam_x")
+@click.option("-y",'--ysetoff',default = None,type = int, help="gem_y + y_offset = bam_y")
+@click.option('--binsize',type = int,default = None, help="binsize")
+@click.option('--removetmp', is_flag=True,default=False, help="Remove all tmp file")
 def CallBack(
     bam: str,
     vcf: str,
@@ -121,6 +121,10 @@ def CallBack(
     tmpdir: str = None,
     qmap: int = 10,
     threads: int = 10,
+    xsetoff: int = None,
+    ysetoff: int = None,
+    binsize : int = None,
+    removetmp: bool = False,
 ):
     CallBack_process(bam,only_autosome,sample,outdir,tmpdir,vcf,barcode,umi,qmap,stereo,threads = threads)
-    pass
+    BulidResult(sample = sample ,sample_tmp_path = tmpdir,sample_matrix_path = outdir,x_offset = xsetoff,y_offset = ysetoff,bin_size = binsize,removetmp = removetmp)
