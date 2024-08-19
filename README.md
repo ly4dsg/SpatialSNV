@@ -4,7 +4,9 @@ A novel method for calling and analyzing SNVs from spatial transcriptomics data.
 
 ---
 
-We divided the process of calling mutations from spatial transcriptomics data into two parts: **Data Preprocessing** and **Data Analysis**.
+We divided the process of calling mutations from spatial transcriptomics data into two parts: **Data Preprocessing** and **Data Analysis**.  
+
+All analyzed jupyter notebooks are saved in the `article` folder
 
 ## Install
 To be determined
