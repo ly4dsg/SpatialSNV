@@ -5,6 +5,7 @@ sc.settings.verbosity = 3
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import subprocess
 import re
 import os 
 import sys
@@ -15,12 +16,6 @@ import sklearn.metrics, sklearn.cluster
 from sklearn.decomposition import PCA
 from sklearn.decomposition import TruncatedSVD
 from sklearn.neighbors import kneighbors_graph, radius_neighbors_graph
-
-plt.rcParams['pdf.fonttype'] = 42
-plt.rcParams['font.sans-serif'] = 'Arial'
-sc.set_figure_params(dpi=50, dpi_save=300, vector_friendly=True)
-sns.set_style('white', {'axes.grid' : False})
-
 
 from time import ctime
 import scipy.sparse as sps
@@ -405,12 +400,11 @@ def snv2avinput(
     gtf,
     spe,
     ref_name,
+    outdir,
     overwrite = False
 ):
-    import subprocess
-    import os 
-    import warnings
-    outdir = f"/storage/liuyi/00.SNP_project/new_article/data/{sample_name}/vcf"
+
+    # outdir = f"/storage/liuyi/00.SNP_project/new_article/data/{sample_name}/vcf"
     if overwrite:
         avi = pd.DataFrame(snv.var_names)
         avi.columns=['snv']
