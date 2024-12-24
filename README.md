@@ -14,7 +14,7 @@ To install `spatialsnv`, use pip:
 
 ```bash
 pip install spatialsnv==1.0.0
-
+```
 We recommend using Python version 3.10.14. You also need to install the following tools: **samtools**,**gatk**,**picard**
 
 ## Data Preprocessing
