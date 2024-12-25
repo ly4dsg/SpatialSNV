@@ -13,7 +13,7 @@ All analyzed jupyter notebooks are saved in the `article` folder
 To install `spatialsnv`, use pip:
 
 ```bash
-pip install spatialsnv==1.0.0
+pip install spatialsnv
 ```
 We recommend using Python version 3.10.14. You also need to install the following tools: **samtools**,**gatk**,**picard**
 

@@ -10,4 +10,6 @@ seaborn==0.13.2
 matplotlib==3.7.5
 scanpy==1.10.0
 tqdm
+cairocffi
+pycairo
 leidenalg

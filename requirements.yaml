@@ -18,3 +18,5 @@ dependencies:
   - tqdm
   - samtools
   - gatk
+  - cairocffi
+  - pycairo

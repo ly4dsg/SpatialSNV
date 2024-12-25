@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="spatialsnv",  
-    version="1.0.0", 
+    version="1.0.2", 
     description="A toolkit for spatial SNV analysis", 
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -14,6 +14,7 @@ setup(
     url="https://https://github.com/ly4dsg/SpatialSNV",  
     license="MIT", 
     packages=find_packages(), 
+    py_modules=["spatialSNV"],
     python_requires=">=3.7",  
     install_requires=[
         "multiprocess==0.70.17",
@@ -28,6 +29,8 @@ setup(
         "matplotlib==3.7.5",
         "scanpy==1.10.0",
         "tqdm",
+        "cairocffi",
+        "pycairo",
         "leidenalg",
     ],
     entry_points={

@@ -404,7 +404,6 @@ def snv2avinput(
     overwrite = False
 ):
 
-    # outdir = f"/storage/liuyi/00.SNP_project/new_article/data/{sample_name}/vcf"
     if overwrite:
         avi = pd.DataFrame(snv.var_names)
         avi.columns=['snv']
@@ -465,6 +464,7 @@ def processsnv(
     annovar_spe,
     annovar_ref_name,
     annovar,
+    outdir,
     thrshold = 20,
     min_cells = 5,
 ):
@@ -485,6 +485,7 @@ def processsnv(
         gtf = gtf,
         spe = annovar_spe,
         ref_name = annovar_ref_name,
+        outdir = outdir,
         overwrite=True
     )
     sub_snv.var['Func_L0'] = sub_snv.var['Func'].apply(lambda x : summary(x))
